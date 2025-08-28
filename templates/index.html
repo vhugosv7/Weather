@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="shortcut icon" href="/static/icon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Bundle JS (includes Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Lato font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <title>Weather App</title>
+</head>
+<body>
+  {# If there is data, will display all the content#}
+  {%if data%}
+    <div class="weather-main">
+        <form method="POST">
+            <div class="input-group">
+                <input type="text" class="form-control " placeholder="Location" name="location" aria-label="Location" aria-describedby="button-addon2">
+                <button class="btn btn-outline-success" type="submit" id="button-addon2">Search</button>
+            </div>
+        </form>
+    <div class="container-weather">
+        <div class="img-container">
+            <img src="{{data['current']['weather_icons']}}" alt="Description" class="img-main">
+        </div>
+        <div class="more-info">
+            <div class="city-date">
+                <span class="location">{{data['location']['name']}}, {{data['location']['country']}} </span>
+                <span class="date">{{data['location']['localtime']}}</span>
+            </div>
+            <div class="temperature-description">
+                <span class="temperature">{{data['current']['temperature']}}°</span><br>
+                <span class="description">{{data['current']['weather_descriptions']}}</span>
+            </div>
+            <div class="current-weather">
+                <div class="weather-item">
+                    <span class="weather-label">
+                      <img src="/static/wind-speed.svg" class="weather-icon" data-bs-toggle="tooltip" title="Wind speed">
+                      {{data['current']['wind_speed']}}
+                    </span>
+                    <span class="weather-label">
+                      <img src="/static/feel.svg" class="weather-icon" data-bs-toggle="tooltip" title="Feels like">
+                      {{data['current']['feelslike']}} °C
+                    </span>
+                  </div>
+                  
+                  <div class="weather-item">
+                    <span class="weather-label">
+                      <img src="/static/humidity.svg" class="weather-icon" data-bs-toggle="tooltip" title="Humidity">
+                      {{data['current']['humidity']}}
+                    </span>
+
+                    <span class="weather-label">
+                      <img src="/static/cloud-cover.svg" class="weather-icon" data-bs-toggle="tooltip" title="Cloud cover">
+                      {{data['current']['cloudcover']}}
+                    </span>
+                  </div>
+            </div>
+        </div>
+      </div>
+    </div>
+{%endif%}
+</body>
+</html>
+<script>
+    //Script for enable tooltips with Boostrap
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  </script>
+  

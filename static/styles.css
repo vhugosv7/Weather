@@ -1,0 +1,177 @@
+/**CSS RESET**/
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+  
+  /* 3. Enable keyword animations */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      -ms-interpolation-mode:allow-keywords;
+    }
+  }
+  
+  body {
+    /* 4. Add accessible line-height */
+    line-height: 1.5;
+    /* 5. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* 6. Improve media defaults */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* 7. Inherit fonts for form controls */
+  input, button, textarea, select {
+    font: Lato;
+  }
+  
+  /* 8. Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /* 9. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  
+  /*
+    10. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+
+body{
+    background-color:#e4e4e4;
+    font-family:Lato;
+}
+
+
+/*Main container*/
+.weather-main {
+    display: flex;
+    justify-content: center; 
+    flex-flow: column;
+    gap: 50px;
+    align-items: center;     
+    height: 100vh;           
+}
+
+
+/*Card container with weather information*/
+.container-weather{
+    border: 1px solid rgb(22, 21, 21);
+    border-radius: 8px;
+    background-color: #faf4f2;
+    padding: 20px;
+    width: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    transition: 0.8s ease-in;
+  }
+
+  .container-weather:hover{
+    padding: 25px;
+    box-shadow: rgba(176, 200, 26, 0.748) 1.95px 1.95px 2.6px;
+  }
+  
+  /*Weather details card*/
+  .more-info {
+    width: 60%;
+  }
+
+  .img-container{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px; 
+  }
+  .img-main {
+    max-width: 100%;
+    height: auto;
+  }
+  .city-date{
+    margin: auto;
+    transition: text-shadow 1s 500ms;
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+  }
+  .location{
+    font-weight: 700;
+    transition: text-shadow 1s 500ms;
+  }
+
+  .temperature-description{
+    width:40%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .temperature{
+    font-weight: 500;
+    font-size: 7rem;
+    transition: text-shadow 1s 500ms;
+    
+  }
+
+  .temperature:hover, .location:hover, .date:hover, .description:hover{
+    text-shadow: 2px 2px 5px rgb(211, 194, 40);
+    cursor:default;
+  }
+
+  .description{
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: text-shadow 1s 500ms;
+  }
+
+  .current-weather{
+    width:65%;
+    display: flex;
+    margin: auto;
+    position: relative;
+    margin-top: 10px;
+    gap: 20px;
+  }
+
+  .weather-label {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+  }
+  
+  .weather-icon {
+    width: 24px; 
+    height: auto;
+    display: block;
+  }
+
+  .weather-item{
+
+    margin: 0 auto;
+  }
+  
+  .input-group{
+    margin: 0 auto;
+    gap: 10px;
+  }
